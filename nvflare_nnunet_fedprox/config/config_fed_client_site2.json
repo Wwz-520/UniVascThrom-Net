@@ -1,0 +1,43 @@
+{
+  "format_version": 2,
+  
+  "###_COMMENT": "==================== CLIENT CONFIGURATION ====================",
+  "###_COMMENT_1": "This is the configuration for Client Site-2",
+  "###_COMMENT_2": "Each client trains on different local data while using the same pretrained model",
+  
+  "executors": [
+    {
+      "tasks": ["train", "validate"],
+      "executor": {
+        "###_COMMENT_EXECUTOR": "Custom nnU-Net FedProx Executor",
+        "path": "custom.nnunet_fedprox_executor.nnUNetFedProxExecutor",
+        "args": {
+          "###_USER_MODIFY_CRITICAL_1": "=== TODO: USER_MODIFY === This is Site-2 configuration",
+          "###_USER_MODIFY_CRITICAL_2": "Site-2 uses Dataset018_NormalAndAbnormalPortalVeins (different from Site-1)",
+          
+          "dataset_name_or_id": "Dataset018_NormalAndAbnormalPortalVeins",
+          "configuration": "3d_fullres",
+          "fold": 4,
+          "trainer_name": "nnUNetTrainer",
+          "plans_identifier": "nnUNetResEncUNetMPlans",
+          
+          "###_USER_MODIFY_CRITICAL_3": "=== TODO: USER_MODIFY === Update pretrained_weights path to match your server",
+          "pretrained_weights": "/root/autodl-tmp/data/nnUNet_results/Dataset015_ThinNormalAndAbnormalPortalVeins/nnUNetTrainer__nnUNetResEncUNetMPlans__3d_fullres/fold_4/checkpoint_final.pth",
+          
+          "###_USER_MODIFY_4": "=== TODO: USER_MODIFY === Adjust training hyperparameters",
+          "num_epochs_per_round": 3,
+          "fedprox_mu": 0.01,
+          "device": "cuda",
+          
+          "###_USER_MODIFY_5": "=== TODO: USER_MODIFY === Set nnU-Net environment paths",
+          "nnunet_preprocessed": "/root/autodl-tmp/data/nnUNet_preprocessed",
+          "nnunet_results": "/root/autodl-tmp/data/nnUNet_results"
+        }
+      }
+    }
+  ],
+  
+  "task_result_filters": [],
+  "task_data_filters": [],
+  "components": []
+}

@@ -1,0 +1,11 @@
+{
+  "format_version": 2,
+  "clients": [
+    {
+      "name": "site-1"
+    },
+    {
+      "name": "site-2"
+    }
+  ]
+}

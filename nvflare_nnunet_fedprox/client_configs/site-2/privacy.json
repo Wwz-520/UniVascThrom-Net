@@ -1,0 +1,5 @@
+{
+  "client": {
+    "allow_adhoc_dataset": true
+  }
+}
